@@ -9,7 +9,6 @@ body {
   #content{
     margin: 0 auto;
     text-align: center;
-    width: 50%;
   }
   
   #footer {
@@ -42,7 +41,7 @@ body {
       width: 350px;
     }
     #content .card {
-      width: 500px !important;
+      width: 500px;
     }
   }
   
