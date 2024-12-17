@@ -21,20 +21,24 @@ export default class Library {
 
     // Refresh the display: Clear container and re-render all books
     refreshDisplay() {
-        const emptyLibraryText = document.querySelector('#emptyLibraryText');
-        
-        // Check if the library is empty
-         // Check if the library is empty
-    if (this.books.length <= 0) {
-        emptyLibraryText.style.display = 'block'; // Show the "empty library" text
-    } else {
-        emptyLibraryText.style.display = 'none';  // Hide the "empty library" text
-    }
+        const libraryContainer = document.getElementById('libraryCards');
+        const emptyLibraryText = document.getElementById('emptyLibraryText');
     
-        // Let each book create and display its card
-        this.books.forEach(book => {
-            book.displayBook(); // Call Book's display logic
-        });
+        // Clear existing book cards only
+        while (libraryContainer.firstChild) {
+            libraryContainer.removeChild(libraryContainer.firstChild);
+        }
+    
+        // Show or hide the "Your library is empty" text
+        if (this.books.length === 0) {
+            emptyLibraryText.style.display = 'block';
+        } else {
+            emptyLibraryText.style.display = 'none';
+            // Add all books back to the DOM
+            this.books.forEach(book => {
+                libraryContainer.appendChild(book.createBookCard());
+            });
+        }
     }
     
     
