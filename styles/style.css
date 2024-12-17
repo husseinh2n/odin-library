@@ -1,0 +1,56 @@
+body {
+    padding-top: 75px;
+    padding-bottom: 200px;
+    /* color: rgb(209, 205, 199) !important;
+    background-color: rgb(24, 26, 27) !important; */
+  }
+  
+  
+  #content{
+    margin: 0 auto;
+    text-align: center;
+    width: 50%;
+  }
+  
+  #footer {
+    margin: 0 auto;
+    width: 450px;
+    text-align: center;
+  }
+  
+  #header {
+    text-align: center;
+  }
+  
+  #logoPic {
+    margin-bottom: 25px;
+  }
+  
+  #content .card {
+    float: none;
+    margin: 0px auto 25px auto;
+    width: 500px !important;
+  }
+  
+  .divider {
+    margin: 50px auto;
+    width: 35vw;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    #footer {
+      width: 350px;
+    }
+    #content .card {
+      width: 500px !important;
+    }
+  }
+  
+  @media only screen and (max-width: 550px) {
+    #footer {
+      width: 250px;
+    }
+    #content .card {
+      width: 300px !important;
+    }
+  }

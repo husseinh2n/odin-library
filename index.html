@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+
+    <script src="scripts/main.js" type="module" defer></script>
+    <script src="scripts/bootstrap.bundle.min.js" async></script>
+
+    <title>Odin-Library</title>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header">
+        <div id="logoPic">
+            <img src="./img/logo.svg" alt="book logo" width="180" height="113" class="d-inline-block align-text-top">
+            <h1 class="display-5">Book Nest</h1>
+        </div>
+        <button type="button" class="btn btn-outline-dark" id="addBookButton">
+            Add New Book
+        </button>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Library -->
+    <div id="content">
+        <!--When Library is empty-->
+        <div id="emptyLibraryText" >
+            <h2>Your List is empty!</h2>
+            <p>Add a book by Clicking "Add New Book" above.</p>
+        </div>
+        <!--When Library is non-empty-->
+        <div id="libraryCards"></div>
+    </div>
+    
+    <hr class="divider" />
+
+    <!--Footer-->
+    <div id="footer">
+        <h2> About </h2>
+        <p>
+            Light-weight book tracking web application
+            built on HTML, CSS, and JavaScript. 
+            It was created in completion of The Odin Project's Full Stack JavaScript Path curriculum.
+        </p>
+        <a href="https://github.com/husseinh2n/odin-library" class="btn btn-outline-dark">
+            Visit Github Repository
+        </a>
+    </div>
+
+    <!--Bootstrap card template-->
+    <template id="bookCard">
+        
+        <div class="card" id="">
+            <div class="card-body">
+                <h5 class="card-title" id="bookTitle"></h5>
+                <p class="card-text" id="bookAuthor"></p>
+                <p><small class="text-muted" id="bookPages"></small></p>
+            </div>
+            <div class="card-img"></div>
+            <div class="card-footer"></div>
+        </div>
+    </template>
+
+
+    <!-- Modal where user fills out form to add new book to library. -->
+    <div class="modal fade" id="addBookModal" tabindex="-1" aria-labelledby="addBookModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addBookModalLabel">Add Book</h5>
+                </div>
+                    <div class="modal-body">
+                        <form name="addBookForm">
+                            <div class="mb-3">
+                                <label for="inputISBN" class="form-label">ISBM</label>
+                                <input class="form-control" id="inputISBN" name="inputISBN" placeholder="Ex: 9780151770922" pattern="\d{13}">
+                                <div class="form-text">Enter the ISBN for a faster input and book cover! (optional)</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputBookTitle" class="form-label">Title</label>
+                                <input class="form-control" id="inputBookTitle" name="inputBookTitle" placeholder="Ex: Elantris" maxlength="50">                                
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputBookAuthor" class="form-label">Author</label>
+                                <input class="form-control" id="inputBookAuthor" name="inputBookAuthor" placeholder="Ex: Brandon Sanderson" maxlength="50">
+                            </div>
+                            <div class="mb-3">
+                                <label for="inputBookPages" class="form-label">Pages</label>
+                                <input type="number" class="form-control" id="inputBookPages" name="inputBookPages" placeholder="Ex: 496" min="1" max="10000">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="inputBookReadStatus">
+                                <label class="form-check-label" for="inputBookReadStatus">Read</label>
+                            </div>
+                        </form>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="addBookModalCancelButton">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="addBookModalSaveButton">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
