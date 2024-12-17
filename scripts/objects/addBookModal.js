@@ -2,7 +2,7 @@ import Book from './book.js';
 
 export default class AddBookModal {
     constructor(library) {
-        this.library = library; // Reference to the Library instance
+        this.library = library;
         this.modal = new bootstrap.Modal(document.querySelector('#addBookModal'));
     }
 
@@ -58,15 +58,25 @@ export default class AddBookModal {
     // Set up the "Save" button logic
     setUpSaveButton() {
         const saveButton = document.querySelector('#addBookModalSaveButton');
-        saveButton.addEventListener('click', () => {
+    
+        saveButton.addEventListener('click', (e) => {
             if (this.isInputValid()) {
                 const newBook = this.createBookFromInput();
-                this.library.addBook(newBook); // Add book to the library
-                this.modal.hide(); // Hide the modal
-                this.resetForm(); // Clear form inputs
+                this.library.addBook(newBook);
+    
+                // Remove focus from the Save button before hiding the modal
+                saveButton.blur();
+    
+                // Hide the modal
+                this.modal.hide();
+    
+                this.resetForm(); // Reset the form inputs
             }
         });
     }
+    
+    
+    
 
     // Set up the "Cancel" button logic
     setUpCancelButton() {
@@ -80,7 +90,19 @@ export default class AddBookModal {
     setUpAddBookButton() {
         const addBookButton = document.querySelector('#addBookButton');
         addBookButton.addEventListener('click', () => {
+            // Remove focus from the button before opening the modal
+            addBookButton.blur(); // This removes focus from the button
+
+            // Remove aria-hidden before opening the modal
+            const modalElement = document.querySelector('#addBookModal');
+            modalElement.removeAttribute('aria-hidden'); // Remove aria-hidden
+
+            // Show the modal
             this.modal.show();
+
+            // Focus on the first input field inside the modal
+            const firstInput = document.querySelector('#inputBookTitle');
+            firstInput.focus(); // Focus on the first input field inside the modal
         });
     }
 
