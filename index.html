@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
@@ -78,20 +79,20 @@
                     <form name="addBookForm">
                         <div class="mb-3">
                             <label for="inputISBN" class="form-label">ISBM</label>
-                            <input class="form-control" id="inputISBN" name="inputISBN" placeholder="Ex: 9780151770922" pattern="\d{13}">
+                            <input class="form-control" id="inputISBN" name="inputISBN" value="9780151770922" pattern="\d{13}">
                             <div class="form-text">Enter the ISBN for a faster input and book cover! (optional)</div>
                         </div>
                         <div class="mb-3">
                             <label for="inputBookTitle" class="form-label">Title</label>
-                            <input class="form-control" id="inputBookTitle" name="inputBookTitle" placeholder="Ex: Elantris" maxlength="50">
+                            <input class="form-control" id="inputBookTitle" name="inputBookTitle" value="Revolutionary Suicide" maxlength="50">
                         </div>
                         <div class="mb-3">
                             <label for="inputBookAuthor" class="form-label">Author</label>
-                            <input class="form-control" id="inputBookAuthor" name="inputBookAuthor" placeholder="Ex: Brandon Sanderson" maxlength="50">
+                            <input class="form-control" id="inputBookAuthor" name="inputBookAuthor" value="Huey P. Newton" maxlength="50">
                         </div>
                         <div class="mb-3">
                             <label for="inputBookPages" class="form-label">Pages</label>
-                            <input type="number" class="form-control" id="inputBookPages" name="inputBookPages" placeholder="Ex: 496" min="1" max="10000">
+                            <input type="number" class="form-control" id="inputBookPages" name="inputBookPages" value="395" min="1" max="10000">
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="inputBookReadStatus">

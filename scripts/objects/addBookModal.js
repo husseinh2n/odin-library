@@ -74,9 +74,6 @@ export default class AddBookModal {
             }
         });
     }
-    
-    
-    
 
     // Set up the "Cancel" button logic
     setUpCancelButton() {
@@ -108,6 +105,15 @@ export default class AddBookModal {
 
     // Set up the entire modal functionality
     setUp() {
+        const modalElement = document.querySelector('#addBookModal');
+        
+        // iOS detection
+        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        if (isIOS) {
+            modalElement.classList.remove('fade');
+        }
+    
+        this.modal = new bootstrap.Modal(modalElement);
         this.setUpSaveButton();
         this.setUpCancelButton();
         this.setUpAddBookButton();
